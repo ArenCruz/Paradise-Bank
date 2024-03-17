@@ -1,0 +1,301 @@
+#:kivy 1.0.9
+#:import Factory kivy.factory.Factory
+<WindowManager>:
+    FirstScreen:
+    SecondScreen:
+    ThirdScreen:
+    FourthScreen:
+    FifthScreen:
+    SixthScreen:
+    Deposit:
+    Withdraw:
+    # address:address
+    # first_name:first_name
+    # middle_name:middle_name
+    # last_name:last_name
+    # password:password
+    
+<FirstScreen@Screen>:
+    name: 'first'
+    Button: 
+        on_press: root.manager.current = 'second'
+        Image: 
+            source: 'assets/Android Large - 7.png'
+            allow_stretch: True
+            size_hint_x:(10)
+            size: self.parent.size
+        
+    Image: 
+        source: 'assets/Frame 1.png'
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_x: (0.9)
+        pos_hint: {"center_x": 0.5, "middle": 0.5}
+    
+        
+<SecondScreen@Screen>:
+    name: 'second'
+    Button: 
+        on_press: root.manager.current = 'third'
+        Image: 
+            source: 'assets/Group 3.png'
+            allow_stretch: True
+            size_hint_x:(10)
+            size: self.parent.size
+<ThirdScreen@Screen>:
+    name: 'third'
+    
+    FitImage:
+        source: 'assets/Android Large - 7.png'
+        allow_stretch: True
+    Label:
+        text: "Sign up"
+        size_hint: None, None
+        font_size: 55
+        color: 0.7843, 0.9765, 0.9176, 1.0 
+        bold: True
+        pos_hint: {'center_x': 0.3, 'center_y': 0.6}
+
+    MDTextField:
+        id: address
+        hint_text:"Email address"
+        icon_right: "account"
+        font_size: 18
+        pos: (root.width - self.width) / 2, root.height * 0.5
+        width: 400
+        size_hint_x: None
+        mode: "round"
+       
+    MDTextField:
+        id: password
+        hint_text:"Password"
+        icon_right: "key"
+        pos: (root.width - self.width) / 2, root.height * 0.4
+        password: True
+        width: 400
+        size_hint_x: None
+        font_size: 18
+        mode: "round"
+    MDFillRoundFlatButton:
+        text: 'Login'
+        size_hint_x: 0.7
+        pos: (root.width - self.width) / 2, root.height * 0.3
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_press: root.manager.transition.direction = "left"
+        on_press: root.manager.btnlogin()
+    MDFillRoundFlatButton:
+        text: 'Create account'
+        size_hint_x: 0.7
+        pos: (root.width - self.width) / 2, root.height * 0.2
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_release: root.manager.current = 'fifth'
+        on_press: root.manager.transition.direction = "left"
+<FourthScreen@Screen>:
+    name: 'fourth'
+    Button: 
+        on_press: root.manager.current = 'third'
+        on_press: root.manager.transition.direction = "right"
+        Image: 
+            source: 'assets/Group 6.png'
+            allow_stretch: True
+            size_hint_x:(10)
+            size: self.parent.size
+    FitImage:
+        source: 'assets/Group 6.png'
+        allow_stretch: True
+    Label:
+        text: 'B A L A N C E'
+        size_hint: None, None
+        font_size: 30
+        color: 0.7843, 0.9765, 0.9176, 1.0 
+        bold: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+    Label:
+        id: balance
+        text: '₱0.00'
+        size_hint: None, None
+        font_size: 70
+        bold:True
+        color: 0.7843, 0.9765, 0.9176, 1.0 
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+    MDFillRoundFlatButton:
+        text: 'Deposit'
+        size_hint_x: 0.3
+        pos: (root.width - self.width) / 4.5, root.height * 0.5
+        theme_text_color: 'Custom'
+        color: 0.7843, 0.9765, 0.9176, 1.0
+        md_bg_color: [199/255, 200/255, 79/255, 1.0]
+        on_release: root.manager.current = 'depop'
+    MDFillRoundFlatButton:
+        text: 'Withdraw'
+        size_hint_x: 0.3
+        pos: (root.width - self.width) / 1.3, root.height * 0.5
+        theme_text_color: 'Custom'
+        color: 0.7843, 0.9765, 0.9176, 1.0
+        md_bg_color: [199/255, 200/255, 79/255, 1.0]
+        on_release: root.manager.current = 'withdrop'
+<FifthScreen@Screen>:
+    name: 'fifth'
+    Button: 
+        on_press: root.manager.current = 'third'
+        on_press: root.manager.transition.direction = "right"
+        Image: 
+            source: 'assets/Android Large - 7.png'
+            allow_stretch: True
+            size_hint_x:(10)
+            size: self.parent.size
+    Label:
+        text: "Create account"
+        size_hint: None, None
+        font_size: 55
+        color: 0.7843, 0.9765, 0.9176, 1.0 
+        bold: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+
+    MDTextField:
+        id: create_address
+        hint_text:"Email address"
+        font_size: 18
+        pos: (root.width - self.width) / 2, root.height * 0.7
+        width: 400
+        size_hint_x: None
+        mode: "round"
+       
+    MDTextField:
+        id: first_name
+        hint_text:"First name"
+        pos: (root.width - self.width) / 2, root.height * 0.6
+        width: 400
+        size_hint_x: None
+        font_size: 18
+        mode: "round"
+    MDTextField:
+        id: middle_name
+        hint_text:"Middle name"
+        pos: (root.width - self.width) / 2, root.height * 0.5
+        width: 400
+        size_hint_x: None
+        font_size: 18
+        mode: "round"
+    MDTextField:
+        id: last_name
+        hint_text:"Last name"
+        pos: (root.width - self.width) / 2, root.height * 0.4
+        width: 400
+        size_hint_x: None
+        font_size: 18
+        mode: "round"
+    MDFillRoundFlatButton:
+        text: 'Continue'
+        size_hint_x: 0.7
+        pos: (root.width - self.width) / 2, root.height * 0.3
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_release: root.manager.current = 'sixth'
+        on_press: root.manager.transition.direction = "left"
+<SixthScreen@Screen>:
+    name: 'sixth'
+    Button: 
+        on_press: root.manager.current = 'fifth'
+        on_press: root.manager.transition.direction = "right"
+        Image: 
+            source: 'assets/Android Large - 7.png'
+            allow_stretch: True
+            size_hint_x:(10)
+            size: self.parent.size
+    Label:
+        text: "Create password"
+        size_hint: None, None
+        font_size: 55
+        color: 0.7843, 0.9765, 0.9176, 1.0 
+        bold: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+    MDTextField:
+        id: create_password
+        hint_text:"Password"
+        font_size: 18
+        password: True
+        pos: (root.width - self.width) / 2, root.height * 0.6
+        width: 400
+        size_hint_x: None
+        mode: "round"
+    MDTextField:
+        id: confirm_password
+        hint_text:"Confirm password"
+        font_size: 18
+        password: True
+        pos: (root.width - self.width) / 2, root.height * 0.5
+        width: 400
+        size_hint_x: None
+        mode: "round"
+    MDFillRoundFlatButton:
+        text: 'Create account'
+        size_hint_x: 0.7
+        pos: (root.width - self.width) / 2, root.height * 0.4
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_press: root.manager.transition.direction = "left"
+        on_release: root.manager.confirmPassword()
+        on_release: root.manager.onButtonPress()
+<Deposit@Screen>:
+    name: 'depop'
+    FitImage:
+        source: 'assets/Group 7.png'
+        allow_stretch: True
+    MDTextField:
+        id: depositinput
+        hint_text:"Enter amount"
+        font_size: 18
+        pos_hint: {"center_x": 0.5, "center_y": 0.6} 
+        width: 200
+        size_hint_x: None
+        mode: "round"
+
+    MDFillRoundFlatButton:
+        text: 'Enter'
+        size_hint_x: 0.7
+        pos_hint: {"center_x": 0.5, "center_y": 0.4} 
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_press: root.manager.depositBal()
+        on_press: root.manager.current = 'fourth'
+        on_press: root.manager.transition.direction = "right"
+<Withdraw@Screen>:
+    name: 'withdrop'
+    FitImage:
+        source: 'assets/Group 8.png'
+        allow_stretch: True
+    MDTextField:
+        id: withdrawinput
+        hint_text:"Enter amount"
+        font_size: 18
+        pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+        width: 200
+        size_hint_x: None
+        mode: "round"
+
+    MDFillRoundFlatButton:
+        text: 'Enter'
+        size_hint_x: 0.7
+        pos_hint: {"center_x": 0.5, "center_y": 0.4} 
+        theme_text_color: 'Custom'
+        text_color: 0.2039, 0.0275, 0.3412, 1.0
+        md_bg_color: [0.6627, 0.6, 0.7529, 1.0]
+        on_press: root.manager.withdrawBal()
+        on_press: root.manager.current = 'fourth'
+        on_press: root.manager.transition.direction = "right"
+        
+
+
+
+
+    
+    
+
